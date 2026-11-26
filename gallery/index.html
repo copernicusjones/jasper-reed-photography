@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jasper Reed Photography</title>
+<meta name="description" content="Jasper Reed Photography — street, food and drink, and outdoor work. Prints and licensing on enquiry.">
+<meta property="og:title" content="Jasper Reed Photography">
+<meta property="og:description" content="Street, food and drink, and outdoor photography. Prints and licensing on enquiry.">
+<meta property="og:type" content="website">
+<style>
+  :root{
+    --ink:#0d0d0f; --ink-2:#16161a; --ink-3:#1f1f24;
+    --paper:#f4f2ee; --muted:#9a9791; --line:#2b2b31;
+    --accent:#c9a227;
+    --max:1180px;
+    --pad:clamp(16px,5vw,64px);
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0; background:var(--ink); color:var(--paper);
+    font-family:"Helvetica Neue",Helvetica,Arial,system-ui,sans-serif;
+    font-size:16px; line-height:1.6; letter-spacing:.01em;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%; display:block; height:auto}
+  a{color:inherit; text-decoration:none}
+  .wrap{width:100%; max-width:var(--max); margin:0 auto; padding-left:var(--pad); padding-right:var(--pad)}
+
+  /* ---------- header ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(13,13,15,.82); backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .bar{display:flex; align-items:center; justify-content:space-between; gap:16px; height:60px}
+  .mark{font-size:11.5px; letter-spacing:.2em; text-transform:uppercase; font-weight:600; white-space:nowrap}
+  @media (max-width:430px){ .mark{font-size:9.5px; letter-spacing:.12em} }
+  .mark span{color:var(--accent)}
+  nav ul{display:flex; gap:26px; margin:0; padding:0; list-style:none}
+  nav a{font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:var(--muted); transition:color .2s}
+  nav a:hover,nav a:focus-visible{color:var(--paper)}
+  .burger{
+    display:none; background:none; border:1px solid var(--line); color:var(--paper);
+    border-radius:2px; padding:9px 12px; font-size:11px; letter-spacing:.18em; text-transform:uppercase;
+  }
+  @media (max-width:860px){
+    .burger{display:block}
+    nav{position:absolute; left:0; right:0; top:60px; background:var(--ink-2);
+        border-bottom:1px solid var(--line); display:none}
+    nav.open{display:block}
+    nav ul{flex-direction:column; gap:0; padding:8px var(--pad) 18px}
+    nav li{border-bottom:1px solid var(--line)}
+    nav li:last-child{border-bottom:0}
+    nav a{display:block; padding:14px 0; font-size:13px}
+  }
+
+  /* ---------- hero ---------- */
+  .hero{position:relative; min-height:78svh; display:flex; align-items:flex-end; overflow:hidden; background:var(--ink-2)}
+  .hero picture,.hero img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover}
+  .hero .veil{position:absolute; inset:0;
+    background:linear-gradient(180deg,rgba(13,13,15,.35) 0%,rgba(13,13,15,.15) 45%,rgba(13,13,15,.94) 100%)}
+  .hero .inner{position:relative; padding-bottom:clamp(28px,6vw,64px); padding-top:clamp(120px,22vh,240px)}
+  .kicker{font-size:11px; letter-spacing:.3em; text-transform:uppercase; color:var(--accent); margin:0 0 14px}
+  h1{margin:0; font-size:clamp(34px,8.5vw,74px); line-height:1.02; letter-spacing:-.02em; font-weight:700}
+  .lede{max-width:46ch; color:#d8d5cf; margin:18px 0 0; font-size:clamp(15px,2.4vw,18px)}
+  .cta{display:flex; flex-wrap:wrap; gap:12px; margin-top:28px}
+  .btn{display:inline-block; padding:13px 22px; border:1px solid var(--paper); font-size:11px;
+       letter-spacing:.2em; text-transform:uppercase; transition:.2s}
+  .btn:hover,.btn:focus-visible{background:var(--paper); color:var(--ink)}
+  .btn.solid{background:var(--accent); border-color:var(--accent); color:#14120a}
+  .btn.solid:hover{background:var(--paper); border-color:var(--paper)}
+
+  /* ---------- sections ---------- */
+  section{padding:clamp(48px,9vw,96px) 0; border-top:1px solid var(--line)}
+  .sec-head{display:flex; flex-wrap:wrap; align-items:baseline; gap:8px 20px; margin-bottom:clamp(20px,4vw,36px)}
+  h2{margin:0; font-size:clamp(20px,4vw,30px); letter-spacing:.02em; font-weight:600}
+  .count{font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--muted)}
+  .note{max-width:64ch; color:var(--muted); font-size:14px; margin:0 0 26px}
+  .note strong{color:var(--paper); font-weight:600}
+
+  .grid{display:grid; gap:clamp(8px,1.6vw,14px); grid-template-columns:1fr}
+  @media (min-width:560px){.grid{grid-template-columns:repeat(2,1fr)}}
+  @media (min-width:900px){.grid{grid-template-columns:repeat(3,1fr)}}
+  figure{margin:0; position:relative; background:var(--ink-3); overflow:hidden; aspect-ratio:4/5}
+  figure img{width:100%; height:100%; object-fit:cover; transition:transform .6s ease}
+  figure:hover img{transform:scale(1.03)}
+  figcaption{position:absolute; left:0; right:0; bottom:0; padding:10px 12px; font-size:11px;
+    letter-spacing:.14em; text-transform:uppercase; color:#cfcbc4;
+    background:linear-gradient(0deg,rgba(13,13,15,.9),transparent)}
+  .slot{background:repeating-linear-gradient(135deg,#17171c,#17171c 12px,#1c1c22 12px,#1c1c22 24px);
+        display:flex; align-items:center; justify-content:center; text-align:center;
+        border:1px dashed #34343c; padding:24px}
+  .slot span{font-size:10.5px; letter-spacing:.2em; text-transform:uppercase; color:#6f6d68; line-height:2}
+  .slot b{display:block; color:#8b8881; letter-spacing:.12em}
+
+  /* ---------- about ---------- */
+  .about{display:grid; gap:clamp(24px,5vw,56px); grid-template-columns:1fr}
+  @media (min-width:820px){.about{grid-template-columns:1.2fr .8fr}}
+  .about p{margin:0 0 16px; color:#d3d0ca; max-width:56ch}
+  dl{margin:0; border-top:1px solid var(--line)}
+  dl div{display:flex; justify-content:space-between; gap:16px; padding:12px 0; border-bottom:1px solid var(--line)}
+  dt{font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--muted); margin:0}
+  dd{margin:0; font-size:14px; text-align:right}
+  .ph{color:var(--accent); border-bottom:1px dashed rgba(201,162,39,.5)}
+  .plain{color:var(--paper)}
+
+  /* ---------- prints / contact ---------- */
+  .split{display:grid; gap:clamp(24px,5vw,56px); grid-template-columns:1fr}
+  @media (min-width:820px){.split{grid-template-columns:1fr 1fr}}
+  .card{border:1px solid var(--line); padding:clamp(20px,4vw,32px); background:var(--ink-2)}
+  .card h3{margin:0 0 10px; font-size:15px; letter-spacing:.14em; text-transform:uppercase; font-weight:600}
+  .card p{margin:0 0 18px; color:var(--muted); font-size:14px}
+  label{display:block; font-size:10.5px; letter-spacing:.18em; text-transform:uppercase; color:var(--muted); margin:14px 0 6px}
+  input,select,textarea{
+    width:100%; background:#0f0f13; border:1px solid var(--line); color:var(--paper);
+    padding:11px 12px; font:inherit; font-size:15px; border-radius:2px;
+  }
+  input:focus,select:focus,textarea:focus{outline:2px solid var(--accent); outline-offset:1px; border-color:transparent}
+  .formnote{margin:16px 0 0; font-size:12px; color:var(--accent); line-height:1.55}
+  .btn[disabled]{opacity:.4; cursor:not-allowed}
+
+  /* ---------- footer ---------- */
+  footer{border-top:1px solid var(--line); padding:32px 0 48px; color:var(--muted); font-size:12px}
+  .foot{display:flex; flex-wrap:wrap; gap:12px 28px; justify-content:space-between}
+  .reveal{opacity:0; transform:translateY(14px); transition:opacity .7s ease, transform .7s ease}
+  .reveal.in{opacity:1; transform:none}
+  @media (prefers-reduced-motion:reduce){
+    .reveal{opacity:1; transform:none; transition:none}
+    figure img{transition:none}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a class="mark" href="#top" aria-label="Jasper Reed Photography — home">Jasper Reed&nbsp;<span>Photography</span></a>
+    <button class="burger" id="burger" aria-expanded="false" aria-controls="nav">Menu</button>
+    <nav id="nav">
+      <ul>
+        <li><a href="#outdoors">Outdoors</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#prints">Prints</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <div class="hero">
+    <picture>
+      <source media="(max-width:640px)" srcset="assets/gallery/outdoor-01.jpg">
+      <img src="assets/gallery/outdoor-01.jpg" alt="Sunset seen through a car window, silhouetted trees on the horizon." fetchpriority="high" decoding="async">
+    </picture>
+    <div class="veil"></div>
+    <div class="wrap inner">
+      <p class="kicker">Jasper Reed Photography</p>
+      <h1>Outdoors &amp; travel</h1>
+      <p class="lede">Four photographs from the road and the water. Prints and licensing available on enquiry.</p>
+      <div class="cta">
+        <a class="btn solid" href="#outdoors">See the work</a>
+        <a class="btn" href="#prints">Prints &amp; licensing</a>
+      </div>
+    </div>
+  </div>
+
+  <section id="outdoors">
+    <div class="wrap">
+      <div class="sec-head">
+        <h2>Outdoors &amp; Travel</h2>
+        <span class="count">4 verified frames</span>
+      </div>
+      <div class="grid">
+        <figure>
+          <img src="assets/gallery/outdoor-02.jpg" alt="A figure mid-swing on a rope above a river, seen against a bridge and forest." loading="lazy" decoding="async" width="1600" height="1200">
+          <figcaption>Rope swing, river</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/gallery/outdoor-03.jpg" alt="A silhouetted figure mid-air above water, backlit under a bright cloudy sky." loading="lazy" decoding="async" width="1600" height="1200">
+          <figcaption>Silhouette, high water</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/gallery/outdoor-04.jpg" alt="Two kayakers seen from behind on a calm tree-lined river." loading="lazy" decoding="async" width="1600" height="1200">
+          <figcaption>Paddling out</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/gallery/outdoor-01.jpg" alt="Sunset through a car window with silhouetted trees blurred by motion." loading="lazy" decoding="async" width="1600" height="1200">
+          <figcaption>Drive home</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap about">
+      <div>
+        <h2 style="margin-bottom:20px">About</h2>
+        <p>I shoot street, food and drink, and whatever the road puts in front of me. The approach is simple: find the light, stay out of the way, and don't oversell the frame.</p>
+      </div>
+      <div>
+        <dl>
+          <div><dt>Name</dt><dd>Jasper Reed</dd></div>
+          <div><dt>Bodies</dt><dd>Sony A7S III · A7R III</dd></div>
+          <div><dt>Work</dt><dd>Street · Food &amp; drink · Book covers</dd></div>
+          <div><dt>Licensing</dt><dd>On enquiry</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section id="prints">
+    <div class="wrap">
+      <div class="sec-head"><h2>Prints &amp; licensing</h2></div>
+      <div class="split">
+        <div class="card">
+          <h3>Prints</h3>
+          <p>Archival pigment prints, sized to order. Framing not included. Turnaround and shipping confirmed per order.</p>
+          <p style="color:var(--paper)">Sizes: 8×10 · 11×14 · 16×20</p>
+          <p class="plain">Pricing on enquiry.</p>
+        </div>
+        <div class="card">
+          <h3>Licensing</h3>
+          <p>Editorial and commercial licences for cleared images. Every file shipped with a rights statement naming the licence scope, territory and term.</p>
+          <p style="color:var(--paper)">Outdoor and travel photography</p>
+          <p class="plain">Pricing on enquiry.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact"><div class="wrap"><h2>Contact</h2><p>For commissions, prints and licensing, email <a href="mailto:jasper-reed@agentmail.to">jasper-reed@agentmail.to</a>.</p></div></section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>© <span id="yr">2026</span> Jasper Reed Photography. All rights reserved.</span>
+    <span>Images may not be reproduced without a licence.</span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+  var b = document.getElementById("burger"), n = document.getElementById("nav");
+  if (b && n) {
+    b.addEventListener("click", function () {
+      var open = n.classList.toggle("open");
+      b.setAttribute("aria-expanded", open ? "true" : "false");
+      b.textContent = open ? "Close" : "Menu";
+    });
+    n.addEventListener("click", function (e) {
+      if (e.target.tagName === "A" && n.classList.contains("open")) {
+        n.classList.remove("open");
+        b.setAttribute("aria-expanded", "false");
+        b.textContent = "Menu";
+      }
+    });
+  }
+
+  var d = document.getElementById("yr");
+  if (d) d.textContent = new Date().getFullYear();
+
+  var f = document.getElementById("enq");
+  if (f) f.addEventListener("submit", function (e) { e.preventDefault(); });
+
+  if ("IntersectionObserver" in window) {
+    var els = document.querySelectorAll("figure, .card");
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { en.target.classList.add("in"); io.unobserve(en.target); }
+      });
+    }, { rootMargin: "0px 0px -8% 0px", threshold: 0.05 });
+    Array.prototype.forEach.call(els, function (el) {
+      el.classList.add("reveal"); io.observe(el);
+    });
+  }
+})();
+</script>
+</body>
+</html>
